@@ -57,30 +57,24 @@ class AuthenticationSystem:
             print(f"User {username} not found.")
             return
 
-
-
         user = User(user_row['user_id'].values[0], user_row['username'].values[0], user_row['password'].values[0], 
-                    user_row['failed_attempts_left'].values[0], user_row['is_locked'].values[0])
-
-        
+                    user_row['failed_attempts_left'].values[0], user_row['is_locked'].values[0]) 
 
         if user.is_locked:
             print(f"Account for {username} is locked. Please contact support.")
             return
 
-
-
         if password == password:
-            user.increment_failed_attempts()
+            
             user.reset_failed_attempts()
             self.update_user(user)
             print(f"User {username} logged in successfully.")
 
         else:
+            user.increment_failed_attempts()
             user.reset_failed_attempts()
             self.update_user(user)
-
-
+            
 
     def update_user(self, user):
         self.users.loc[self.users['username'] == user.username, 'failed_attempts_left'] = user.failed_attempts
