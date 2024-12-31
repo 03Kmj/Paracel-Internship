@@ -28,7 +28,7 @@ class AuthenticationSystem:
         self.users = pd.DataFrame(columns=["user_id", "username", "password", "failed_attempts_left", "is_locked"])
 
     def register_user(self, user_id, username, password):
-        if self.users[selfs.users['username'] == username].empty:
+        if self.users[self.users['username'] == username].empty:
             new_user = pd.DataFrame({
                 "user_id": [user_id], 
                 "username": [username], 
@@ -68,6 +68,7 @@ class AuthenticationSystem:
         print(f"User {user.username}'s data updated.")
 
 auth_system = AuthenticationSystem()
+
 auth_system.register_user(1, "neena", "password123") 
 auth_system.register_user(2, "helios", "mysecurepassword") 
 
