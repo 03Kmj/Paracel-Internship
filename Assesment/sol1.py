@@ -22,7 +22,6 @@ class User:
         self.is_locked = True
         print(f"Account for {self.username} has been locked due to too many failed login attempts.")
         
-        
 class AuthenticationSystem:
 
     def __init__(self):
