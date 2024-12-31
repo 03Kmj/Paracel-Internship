@@ -44,7 +44,7 @@ class AuthenticationSystem:
             "password": [password], 
             "failed_attempts_left": [3], 
             "is_locked": [False]
-        })], ignore_index=True) # Add new user to DataFrame.
+        })], ignore_index=True)
 
         print(f"User {username} registered successfully.")
 
